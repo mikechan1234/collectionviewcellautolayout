@@ -20,7 +20,10 @@ public class SampleCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
+        contentView.backgroundColor = .clear
         contentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        subTextLabel.font = UIFont.boldSystemFont(ofSize: 16)
         
     }
 

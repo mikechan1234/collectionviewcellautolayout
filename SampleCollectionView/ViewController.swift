@@ -20,9 +20,11 @@ class ViewController: UIViewController {
      
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         collectionView.collectionViewLayout = flowLayout
         collectionView.dataSource = self
+        collectionView.backgroundColor = .lightGray
         
     }
     
@@ -54,9 +56,11 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SampleCollectionViewCell", for: indexPath) as! SampleCollectionViewCell
         
-        cell.textLabel.text = randomString(length: 100)
+        cell.textLabel.text = randomString(length: 200)
         cell.subTextLabel.text = randomString(length: 10)
-        cell.widthConstraint.constant = collectionView.bounds.width
+        
+        //Minus 20 because of the leading and trailing padding in SampleCollectionViewCell
+        cell.widthConstraint.constant = collectionView.bounds.width - 20
         
         return cell
         
@@ -83,5 +87,3 @@ extension ViewController {
     }
     
 }
-
-
